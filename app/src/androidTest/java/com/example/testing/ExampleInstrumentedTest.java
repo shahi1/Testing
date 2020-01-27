@@ -10,6 +10,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static androidx.test.espresso.Espresso.closeSoftKeyboard;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
@@ -28,10 +29,10 @@ public class ExampleInstrumentedTest {
 
     @Rule
     public ActivityTestRule<MainActivity> testRule = new ActivityTestRule<>(MainActivity.class);
-    public String result = "10";
+    public String result = "10.0";
 
     @Test
-    public void TestAddition() {
+    public void testAddition() {
         onView(withId(R.id.etfirst)).perform(typeText("6"));
 
         onView(withId(R.id.etsecond)).perform(typeText("4"));
@@ -46,8 +47,10 @@ public class ExampleInstrumentedTest {
         //Button clicked
 
         onView(withId(R.id.btnSum)).perform(click());
+        closeSoftKeyboard();
 
-        //onView(withId(R.id.tvResult)).check(matches(withText("Result is :22.0")));
+
+        onView(withId(R.id.tvResult)).check(matches(withText(result)));
     }
 
 }

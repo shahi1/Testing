@@ -22,14 +22,14 @@ public class MyTest {
         assertEquals(expectedResult,actualResult);
     }
     @Test
-    public void testSubtraction()
+    public void testSubtract()
     {
         float expectedResult=10;
         float actualResult=arithemetic.subtract(20,10);
         assertEquals(expectedResult,actualResult);
 
     }@Test
-    public void testDivision()
+    public void testDivide()
     {
         float expectedResult=2;
         float actualResult=arithemetic.divide(12,6);
